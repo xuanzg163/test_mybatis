@@ -28,19 +28,32 @@ public class TestMyBatis {
          */
         InputStream is = Resources.getResourceAsStream("mybatis.xml");
 
-        //b)、创建会话工厂
+        /**
+         * b)、创建会话工厂
+         */
+
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(is);
 
-        //c)、创建SqlSession
+        /**
+         * c)、创建SqlSession
+         */
+
          SqlSession sqlSession= sqlSessionFactory.openSession();
 
-        //d)、通过sqlSession 操作数据库
+        /**
+         * d)、通过sqlSession 操作数据库
+         */
+
         User user = sqlSession.selectOne("com.mybatis.mapper.UserMapper.queryUserById",1);
 
-        //e)、处理结果
+        /**
+         *  e)、处理结果
+         */
         System.out.println(user);
 
-        //f)、关闭session
+        /**
+         * f)、关闭session
+         */
         sqlSession.close();
 
     }
