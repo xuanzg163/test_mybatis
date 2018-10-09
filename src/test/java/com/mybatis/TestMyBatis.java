@@ -57,4 +57,29 @@ public class TestMyBatis {
         sqlSession.close();
 
     }
+
+
+    /**
+     *  测试ORM包扫描配置
+     * @throws IOException
+     */
+    @Test
+    public void test02() throws IOException {
+
+        InputStream is = Resources.getResourceAsStream("mybatis.xml");
+
+
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(is);
+
+
+        SqlSession sqlSession= sqlSessionFactory.openSession();
+
+
+        User user = sqlSession.selectOne("com.mybatis.mapper.UserMapper.queryUserById",1);
+
+        System.out.println(user);
+
+        sqlSession.close();
+
+    }
 }

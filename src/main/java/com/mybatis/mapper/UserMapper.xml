@@ -16,7 +16,7 @@ statement 描述即待执行的sql
 -->
 <mapper namespace="com.mybatis.mapper.UserMapper">
     <select id="queryUserById" parameterType="int"
-            resultType="com.mybatis.po.User">
+            resultType="user">
           select id,user_name as userName,user_pwd as userPwd from user where id=#{id}
     </select>
 </mapper>
